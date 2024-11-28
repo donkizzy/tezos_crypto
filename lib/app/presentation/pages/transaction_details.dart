@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tezos_asessment/app/data/models/transaction_response.dart';
 import 'package:tezos_asessment/core/app_colors.dart';
+import 'package:tezos_asessment/core/utils.dart';
 
 class TransactionDetails extends StatefulWidget {
-  const TransactionDetails({super.key});
+  final Tx? transaction;
+  const TransactionDetails({super.key, required this.transaction});
 
   @override
   State<TransactionDetails> createState() => _TransactionDetailsState();
@@ -50,10 +53,9 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
               const Spacer(),
-              const Expanded(
-                  child: Text(
-                '0000000000000bae09a7a393a8acded75aa67e46cb81f7acaa5ad94f9eacd103',
-                style: TextStyle(fontSize: 16),
+               Expanded(
+                  child: Text( widget.transaction?.hash ?? 'N/A',
+                style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.end,
               )),
             ],
@@ -73,10 +75,10 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
               const Spacer(),
-              const Expanded(
+               Expanded(
                   child: Text(
-                    '2019-08-24 • 15:43',
-                    style: TextStyle(fontSize: 16),
+                    formatTimestamp(widget.transaction?.time ?? 0),
+                    style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.end,
                   )),
             ],
@@ -96,10 +98,10 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
               const Spacer(),
-              const Expanded(
+               Expanded(
                   child: Text(
-                    '9195',
-                    style: TextStyle(fontSize: 16),
+                    widget.transaction?.size.toString() ?? 'N/A',
+                    style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.end,
                   )),
             ],
@@ -119,10 +121,10 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
               const Spacer(),
-              const Expanded(
+               Expanded(
                   child: Text(
-                    '818044',
-                    style: TextStyle(fontSize: 16),
+                    widget.transaction?.blockIndex.toString() ?? 'N/A',
+                    style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.end,
                   )),
             ],
@@ -142,10 +144,10 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
               const Spacer(),
-              const Expanded(
+              Expanded(
                   child: Text(
-                    '154595',
-                    style: TextStyle(fontSize: 16),
+                    widget.transaction?.blockHeight.toString() ?? 'N/A',
+                    style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.end,
                   )),
             ],
@@ -165,10 +167,10 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
               const Spacer(),
-              const Expanded(
+               Expanded(
                   child: Text(
-                    '2019-08-24 • 15:43',
-                    style: TextStyle(fontSize: 16),
+                    formatTimestamp(widget.transaction?.lockTime ?? 0),
+                    style: const TextStyle(fontSize: 16),
                     textAlign: TextAlign.end,
                   )),
             ],

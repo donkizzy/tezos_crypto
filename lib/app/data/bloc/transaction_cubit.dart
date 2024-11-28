@@ -25,7 +25,7 @@ class TransactionCubit extends Cubit<TransactionState> {
   }
 
   void fetchTransactions({required String hashBlock}) async {
-    emit(TransactionLoading());
+    emit(TransactionBlockLoading());
     try {
       var response = await _transactionRepository.fetchTransactions(hashBlock: hashBlock);
       emit(TransactionSuccess(transactionResponse: response));
