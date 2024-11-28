@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tezos_asessment/app/data/models/transaction_response.dart';
 import 'package:tezos_asessment/core/app_colors.dart';
 import 'package:tezos_asessment/core/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TransactionDetails extends StatefulWidget {
   final Tx? transaction;
@@ -176,25 +177,38 @@ class _TransactionDetailsState extends State<TransactionDetails> {
             ],
           ),
           const SizedBox(height: 58,),
-          Row(
-            children: [
-              SvgPicture.asset(
-                "assets/external-link.svg",
-                height: 24,
-                colorFilter:  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
-              ),
-              const SizedBox(width: 16,),
-               const Expanded(child: Text('View on block explorer',style: TextStyle(color: Colors.black,fontSize: 16),)),
-              const SizedBox(width: 16,),
-               SvgPicture.asset(
-                "assets/chevron-right.svg",
-                height: 24,
-                colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.32), BlendMode.srcIn),
-              ),
-            ],
+          GestureDetector(
+            onTap: (){
+              _launchUrl('https://www.blockchain.com/explorer/transactions/btc/${widget.transaction?.hash}');
+            },
+            behavior: HitTestBehavior.opaque,
+            child: Row(
+              children: [
+                SvgPicture.asset(
+                  "assets/external-link.svg",
+                  height: 24,
+                  colorFilter:  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
+                const SizedBox(width: 16,),
+                 const Expanded(child: Text('View on blockchain explorer',style: TextStyle(color: Colors.black,fontSize: 16),)),
+                const SizedBox(width: 16,),
+                 SvgPicture.asset(
+                  "assets/chevron-right.svg",
+                  height: 24,
+                  colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.32), BlendMode.srcIn),
+                ),
+              ],
+            ),
           )
         ],
       ),
     );
+
+  }
+
+  Future<void> _launchUrl(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      throw Exception('Could not launch $url');
+    }
   }
 }
