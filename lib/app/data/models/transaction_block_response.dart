@@ -1,11 +1,13 @@
-class TransactionBlockResponse {
+import 'package:equatable/equatable.dart';
+
+class TransactionBlockResponse extends Equatable{
   final String? hash;
   final int? time;
   final int? blockIndex;
   final int? height;
   final List<int>? txIndexes;
 
-  TransactionBlockResponse({
+  const TransactionBlockResponse({
     this.hash,
     this.time,
     this.blockIndex,
@@ -28,4 +30,7 @@ class TransactionBlockResponse {
     "height": height,
     "txIndexes": txIndexes == null ? [] : List<dynamic>.from(txIndexes!.map((x) => x)),
   };
+
+  @override
+  List<Object?> get props => [hash, time, blockIndex, height, txIndexes];
 }
