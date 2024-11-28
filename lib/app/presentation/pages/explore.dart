@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tezos_asessment/app/presentation/pages/transaction_list.dart';
 import 'package:tezos_asessment/core/app_colors.dart';
 import 'package:tezos_asessment/core/utils.dart';
 
@@ -131,58 +132,64 @@ class _ExplorePageState extends State<ExplorePage> {
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               itemBuilder: (BuildContext context, int index) {
-                return Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Colors.white,
-                      backgroundImage: AssetImage(assets[index]),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Row(
-                            children: [
-                              Text(
-                                'Bitcoin',
-                                style: TextStyle(color: Colors.black, fontSize: 16),
-                              ),
-                              Spacer(),
-                              Text(
-                                '₦5,000.00',
-                                style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Text(
-                                'BTC',
-                                style: TextStyle(color: grayChateau, fontSize: 16),
-                              ),
-                              const Spacer(),
-                              Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    "assets/arrow-up-right.svg",
-                                    height: 16,
-                                  ),
-                                  const Text(
-                                    '0.5%',
-                                    style: TextStyle(color: salemGreen, fontSize: 16, fontWeight: FontWeight.w600),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TransactionList()));
+                  },
+                  behavior: HitTestBehavior.opaque,
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Colors.white,
+                        backgroundImage: AssetImage(assets[index]),
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Row(
+                              children: [
+                                Text(
+                                  'Bitcoin',
+                                  style: TextStyle(color: Colors.black, fontSize: 16),
+                                ),
+                                Spacer(),
+                                Text(
+                                  '₦5,000.00',
+                                  style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                const Text(
+                                  'BTC',
+                                  style: TextStyle(color: grayChateau, fontSize: 16),
+                                ),
+                                const Spacer(),
+                                Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      "assets/arrow-up-right.svg",
+                                      height: 16,
+                                    ),
+                                    const Text(
+                                      '0.5%',
+                                      style: TextStyle(color: salemGreen, fontSize: 16, fontWeight: FontWeight.w600),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               separatorBuilder: (BuildContext context, int index) {
