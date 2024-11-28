@@ -1,0 +1,198 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tezos_asessment/core/app_colors.dart';
+
+class TransactionDetails extends StatefulWidget {
+  const TransactionDetails({super.key});
+
+  @override
+  State<TransactionDetails> createState() => _TransactionDetailsState();
+}
+
+class _TransactionDetailsState extends State<TransactionDetails> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        forceMaterialTransparency: true,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          behavior: HitTestBehavior.opaque,
+          child: Center(
+            child: SvgPicture.asset(
+              "assets/arrow_back.svg",
+              height: 16,
+            ),
+          ),
+        ),
+        centerTitle: true,
+        title: const Text(
+          "Transaction details",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Hash',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+              const Spacer(),
+              const Expanded(
+                  child: Text(
+                '0000000000000bae09a7a393a8acded75aa67e46cb81f7acaa5ad94f9eacd103',
+                style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.end,
+              )),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 17.0),
+            child: Divider(
+              height: 1,
+              color: athensGray,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Time',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+              const Spacer(),
+              const Expanded(
+                  child: Text(
+                    '2019-08-24 • 15:43',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.end,
+                  )),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 17.0),
+            child: Divider(
+              height: 1,
+              color: athensGray,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Size',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+              const Spacer(),
+              const Expanded(
+                  child: Text(
+                    '9195',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.end,
+                  )),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 17.0),
+            child: Divider(
+              height: 1,
+              color: athensGray,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Block index',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+              const Spacer(),
+              const Expanded(
+                  child: Text(
+                    '818044',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.end,
+                  )),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 17.0),
+            child: Divider(
+              height: 1,
+              color: athensGray,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Height',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+              const Spacer(),
+              const Expanded(
+                  child: Text(
+                    '154595',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.end,
+                  )),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 17.0),
+            child: Divider(
+              height: 1,
+              color: athensGray,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Received time',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+              const Spacer(),
+              const Expanded(
+                  child: Text(
+                    '2019-08-24 • 15:43',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.end,
+                  )),
+            ],
+          ),
+          const SizedBox(height: 58,),
+          Row(
+            children: [
+              SvgPicture.asset(
+                "assets/external-link.svg",
+                height: 24,
+                colorFilter:  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+              ),
+              const SizedBox(width: 16,),
+               const Expanded(child: Text('View on block explorer',style: TextStyle(color: Colors.black,fontSize: 16),)),
+              const SizedBox(width: 16,),
+               SvgPicture.asset(
+                "assets/chevron-right.svg",
+                height: 24,
+                colorFilter:  ColorFilter.mode(Colors.black.withOpacity(0.32), BlendMode.srcIn),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tezos_asessment/app/presentation/pages/transaction_details.dart';
 import 'package:tezos_asessment/core/app_colors.dart';
 
 class TransactionList extends StatefulWidget {
@@ -44,6 +45,9 @@ class _TransactionListState extends State<TransactionList> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemBuilder: (context, index) {
           return ListTile(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const TransactionDetails()));
+            },
             visualDensity: VisualDensity.compact,
             contentPadding: EdgeInsets.zero,
             title: const Padding(
