@@ -31,11 +31,6 @@ final class TransactionBlockError extends TransactionState {
 }
 
 
-final class TransactionLoading extends TransactionState {
-  @override
-  List<Object> get props => [];
-}
-
 final class TransactionSuccess extends TransactionState {
   final TransactionResponse transactionResponse;
 

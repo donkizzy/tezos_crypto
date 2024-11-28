@@ -23,14 +23,6 @@ class TransactionBlockResponse extends Equatable{
     txIndexes: json["txIndexes"] == null ? [] : List<int>.from(json["txIndexes"]!.map((x) => x)),
   );
 
-  Map<String, dynamic> toJson() => {
-    "hash": hash,
-    "time": time,
-    "block_index": blockIndex,
-    "height": height,
-    "txIndexes": txIndexes == null ? [] : List<dynamic>.from(txIndexes!.map((x) => x)),
-  };
-
   @override
   List<Object?> get props => [hash, time, blockIndex, height, txIndexes];
 }
