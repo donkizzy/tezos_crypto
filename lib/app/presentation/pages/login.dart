@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tezos_asessment/app/presentation/pages/explore.dart';
 import 'package:tezos_asessment/app/presentation/widgets/custom_field.dart';
 import 'package:tezos_asessment/core/app_colors.dart';
 
@@ -17,18 +18,24 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: salemGreen,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        margin: const EdgeInsets.only(bottom: 40, left: 16,right: 16),
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        child:  const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Continue',style: TextStyle(color: Colors.white,fontSize: 16),),
-          ],
+      bottomNavigationBar: GestureDetector(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ExplorePage()));
+        },
+        behavior: HitTestBehavior.opaque,
+        child: Container(
+          decoration: BoxDecoration(
+            color: salemGreen,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          margin: const EdgeInsets.only(bottom: 40, left: 16,right: 16),
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          child:  const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Continue',style: TextStyle(color: Colors.white,fontSize: 16),),
+            ],
+          ),
         ),
       ),
       body: ListView(
