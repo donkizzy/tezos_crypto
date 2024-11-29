@@ -8,6 +8,9 @@ This project is a Flutter application that displays Bitcoin transaction details.
 - Fetch and display Bitcoin transaction details.
 - View transaction details on a blockchain explorer.
 
+## Demo Video
+https://www.loom.com/share/b8df837cfd544406993c07059edeecf3?sid=c98a1df6-0c70-45a7-af82-5dbd8c6a9ed4
+
 ## Getting Started
 
 ### Prerequisites
