@@ -199,7 +199,8 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                 ),
               ],
             ),
-          )
+          ),
+          const SizedBox(height: 40,),
         ],
       ),
     );
